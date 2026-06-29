@@ -99,12 +99,12 @@ Finance, Health and Spiritual Growth.
 
 <div class="mt-4">
 
-<a href="tel:+9190090700070" class="btn btn-warning btn-lg">
+<a href="tel:+919009700070" class="btn btn-warning btn-lg">
 <i class="fa fa-phone"></i>
 Call Now
 </a>
 
-<a href="https://wa.me/9190090700070" class="btn btn-success btn-lg">
+<a href="https://wa.me/919009700070" class="btn btn-success btn-lg">
 <i class="fab fa-whatsapp"></i>
 WhatsApp
 </a>
@@ -536,22 +536,22 @@ Thank you Pandit Ji.
 
 <h2 class="section-title">Book Appointment</h2>
 
-<form action="send.php" method="post">
+<form id="bookingForm">
 
 <div class="mb-3">
-<input type="text" name="name" class="form-control" placeholder="Full Name" required>
+<input type="text" id="name" class="form-control" placeholder="Full Name" required>
 </div>
 
 <div class="mb-3">
-<input type="tel" name="phone" class="form-control" placeholder="Mobile Number" required>
+<input type="tel" id="phone" class="form-control" placeholder="Mobile Number" required>
 </div>
 
 <div class="mb-3">
-<input type="date" name="date" class="form-control">
+<input type="date" id="date" class="form-control">
 </div>
 
 <div class="mb-3">
-<select name="service" class="form-select">
+<select id="service" class="form-select">
 <option>Select Service</option>
 <option>Kundli Analysis</option>
 <option>Marriage Consultation</option>
@@ -563,14 +563,44 @@ Thank you Pandit Ji.
 </div>
 
 <div class="mb-3">
-<textarea class="form-control" rows="5" name="message" placeholder="Write your problem..."></textarea>
+<textarea id="message" class="form-control" rows="5" placeholder="Write your problem..."></textarea>
 </div>
 
-<button class="btn btn-warning btn-lg w-100">
+<button type="submit" class="btn btn-warning btn-lg w-100">
 Book Appointment
 </button>
 
 </form>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var date = document.getElementById("date").value;
+    var service = document.getElementById("service").value;
+    var problem = document.getElementById("message").value;
+
+    var text =
+`🪔 *New Appointment Request* 🪔
+
+👤 Name: ${name}
+📞 Mobile: ${phone}
+📅 Date: ${date}
+🔮 Service: ${service}
+
+📝 Problem:
+${problem}`;
+
+    var number = "919009700070"; // Replace with your WhatsApp number
+
+    window.location.href =
+    "https://wa.me/" + number + "?text=" + encodeURIComponent(text);
+
+});
+</script>
 
 </div>
 
@@ -666,11 +696,11 @@ loading="lazy">
 
 <!-- Floating Buttons -->
 
-<a href="https://wa.me/9190090700070" class="floating-whatsapp">
+<a href="https://wa.me/919009700070" class="floating-whatsapp">
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<a href="tel:+9190090700070" class="floating-call">
+<a href="tel:+919009700070" class="floating-call">
 <i class="fas fa-phone"></i>
 </a>
 
